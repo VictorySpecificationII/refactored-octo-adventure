@@ -3,6 +3,8 @@ RC Car Project - Arduino and Jetson Nano
 
 Heavily inspired by: https://github.com/UvinduW/RCAutopilot
 
+If you are using a NodeMCU v3, follow this link prior to doing any work: http://www.whatimade.today/flashing-the-nodemcu-firmware-on-the-esp8266-linux-guide/
+
 ## Wiring
  - ESC Signal: D0
  - ESC Gnd :   GND on NodeMCU v3
@@ -14,3 +16,4 @@ Heavily inspired by: https://github.com/UvinduW/RCAutopilot
  - esc_calibration: Adruino sketch that allows you to calibrate your ESC using the serial monitor.
 ### doc
  - 45057ml-801-efb9.pdf: Tamiya TBLE-02S ESC Manual
+
