@@ -24,6 +24,7 @@ void setup() {
 
 }
 
+//stable speed for testing only
 int esc_sig_speed = 80;
 
 
