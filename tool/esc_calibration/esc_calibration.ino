@@ -5,12 +5,13 @@
 int drivePin = D0;
 Servo driveMotor;
 
-//Serial Monitor Input
-int sm_input;
+////Serial Monitor Input
+////int sm_input;
+byte sm_input;
 
 void setup() {
-  Serial.begin(115200); 
-  delay(2000);  
+  Serial.begin(115200);
+  delay(2000);
 
   //Attach drive and turn motors
   driveMotor.attach(drivePin);
@@ -23,14 +24,24 @@ void setup() {
 
 }
 
+int esc_sig_speed = 80;
+
+
 void loop() {
-  if(Serial.available()){
-    sm_input = Serial.parseInt();
-    Serial.print("You typed: " );
-    Serial.println(sm_input);
-    driveMotor.write(sm_input);
-    delay(3000);
-    driveMotor.write(180);
-    
+
+//driveMotor.write(esc_sig_speed);
+
+  while (Serial.available()){
+    int val= Serial.parseInt();
+    if(val == 0){//Serial.available returns 0 so we can't use 0 for full throttle,use 1 instead
+      continue;
+    }
+    else{
+    Serial.println(val);
+    driveMotor.write(val);
+    }
   }
 }
+//sto 80 trava 0.7A
+//sto 60 trava 3 kommaan kati A
+//===============================================================================//
