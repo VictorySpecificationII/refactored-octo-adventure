@@ -19,3 +19,5 @@ If you are using a NodeMCU v3, follow this link prior to doing any work: http://
 ### doc
  - 45057ml-801-efb9.pdf: Tamiya TBLE-02S ESC Manual
 
+### lib
+ - HCPCA9865.zip: PCA9865 library
