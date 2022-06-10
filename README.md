@@ -14,6 +14,8 @@ If you are using a NodeMCU v3, follow this link prior to doing any work: http://
 
 ### tool
  - esc_calibration: Adruino sketch that allows you to calibrate your ESC using the serial monitor.
+ - i2c-tester: Arduino test that checks i2c connectivity to components and prints out a message.
+ - steering-test: Arduino sketch that is used to verify steering for the car.
 ### doc
  - 45057ml-801-efb9.pdf: Tamiya TBLE-02S ESC Manual
 
