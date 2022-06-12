@@ -12,14 +12,14 @@ Picture Pending
 
 ## Software Environment
 
-Inside KiCAD, click on Preferences -> Manage Symbol Libraries, add an entry and point directly to the git repo folder location, to the file Custom_Symbols.lib - file will be updated as project moves on - new symbols added so do it this way to avoid manually updating your libs.
+Inside KiCAD, click on Preferences -> Manage Symbol Libraries, add an entry and point directly to the git repo folder location, to the file rccar-rescue.lib - file will be updated as project moves on - new symbols added so do it this way to avoid manually updating your libs.
 
 For Linux/Windows, install the CH340 driver so you can communicate with the NodeMCUv3 through the Arduino IDE
 
 For Arduino IDE, go to File -> Preferences, and paste the following links to the "Additional Boards Manager URL:
 
- - https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json i.e NodeMCU MCU's
- - https://arduino.esp8266.com/stable/package_esp8266com_index.json: Some extra arduino boards i.e Arduino Micro
+ - https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json i.e Extra Arduino Boards
+ - https://arduino.esp8266.com/stable/package_esp8266com_index.json: Some extra arduino boards i.e NodeMCU boards
 
 
 ## Folder structure
@@ -46,3 +46,8 @@ For Arduino IDE, go to File -> Preferences, and paste the following links to the
  - rccar.kicad_pcb: PCB file
  - rccar.pro - KiCad project file
 
+## Assembly
+
+ - Upload esc_calibration to the NodeMCUv3 and use the Serial Monitor to test your connections, instructions in the program.
+ - Upload steering_test to the Nano and simply power it up to test your connections to the servos.
+ - For any i2c work, use the i2c_tester sketch to test your i2c connectivity.
