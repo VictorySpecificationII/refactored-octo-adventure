@@ -39,8 +39,8 @@ For Arduino IDE, go to File -> Preferences, and paste the following links to the
 #### arduino-ide
  - HCPCA9865.zip: PCA9865 library
 #### kicad
- - Custom_Symbols.dcm KiCad File
- - Custom_Symbols.lib: KiCad Symbols library - NodeMCU, Arduino Nano, TBLE-02S
+ - rccar-rescue.dcm KiCad File
+ - rccar-rescue.lib: KiCad Symbols library - NodeMCU, Arduino Nano, TBLE-02S
  - rccar-cache.lib: KiCad File
  - rccar.sch KiCad: Main schematic
  - rccar.kicad_pcb: PCB file
