@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name rccar-rescue)(type Legacy)(uri ${KIPRJMOD}/rccar-rescue.lib)(options "")(descr ""))
+)
