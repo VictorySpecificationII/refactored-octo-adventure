@@ -38,6 +38,7 @@ For Arduino IDE, go to File -> Preferences, and paste the following links to the
 ### lib
 #### arduino-ide
  - HCPCA9865.zip: PCA9865 library
+ - ESP8266: Download from https://github.com/esp8266/Arduino
 #### kicad
  - rccar-rescue.dcm KiCad File
  - rccar-rescue.lib: KiCad Symbols library - NodeMCU, Arduino Nano, TBLE-02S
