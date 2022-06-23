@@ -550,4 +550,16 @@ Wire Wire Line
 Wire Wire Line
 	5750 7400 5950 7400
 Connection ~ 3100 5800
+Text Notes 8200 7650 0    50   ~ 0
+23-Jun-2022
+Text Notes 7300 7250 0    50   ~ 0
+1
+Text Notes 7400 7250 0    50   ~ 0
+1
+Text Notes 10550 7650 0    50   ~ 0
+3
+Text Notes 7400 7500 0    50   ~ 0
+RC Car Main Wiring Schematic
+Text Notes 9250 7300 0    50   ~ 0
+Antreas Christofi / IntellectualPlayspace
 $EndSCHEMATC
