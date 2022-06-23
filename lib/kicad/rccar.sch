@@ -50,7 +50,7 @@ Text Notes 4450 2300 0    50   ~ 0
 NC
 Wire Wire Line
 	3650 2050 4000 2050
-Text Notes 5650 2300 0    50   ~ 0
+Text Notes 7300 1200 0    50   ~ 0
 NC
 Wire Wire Line
 	3700 2250 3700 2500
@@ -468,19 +468,7 @@ $EndComp
 Wire Wire Line
 	3850 5400 1850 5400
 Wire Wire Line
-	1850 5400 1850 5900
-Wire Wire Line
 	1650 5800 1650 5900
-Wire Wire Line
-	1650 5800 3850 5800
-Wire Wire Line
-	3850 5500 2150 5500
-Wire Wire Line
-	2150 5500 2150 5900
-Wire Wire Line
-	3850 5600 2250 5600
-Wire Wire Line
-	2250 5600 2250 5900
 Text Notes 4250 4100 0    50   ~ 0
 NC
 Text Notes 4150 4100 0    50   ~ 0
@@ -512,10 +500,6 @@ NC
 Text Notes 5250 4100 0    50   ~ 0
 NC
 Text Notes 4350 2750 0    50   ~ 0
-NC
-Text Notes 4250 2750 0    50   ~ 0
-NC
-Text Notes 4150 2750 0    50   ~ 0
 NC
 Text Notes 4650 2750 0    50   ~ 0
 NC
@@ -619,4 +603,55 @@ Text Notes 2900 5900 0    50   ~ 0
 NC
 Wire Wire Line
 	5800 6900 5800 7400
+Connection ~ 5400 2450
+Wire Wire Line
+	1850 5400 1850 4500
+Wire Wire Line
+	1850 4500 7600 4500
+Wire Wire Line
+	7600 4500 7600 2250
+Wire Wire Line
+	5600 2250 7600 2250
+Wire Wire Line
+	3850 5800 3100 5800
+Wire Wire Line
+	3100 5800 3100 4300
+Wire Wire Line
+	3100 4300 7350 4300
+Wire Wire Line
+	7350 4300 7350 2450
+Wire Wire Line
+	5400 2450 7350 2450
+Wire Wire Line
+	1700 5600 1700 3000
+Wire Wire Line
+	1700 3000 3900 3000
+Wire Wire Line
+	3900 3000 3900 2700
+Wire Wire Line
+	3900 2700 4200 2700
+Wire Wire Line
+	4200 2700 4200 2800
+Wire Wire Line
+	1700 5600 3850 5600
+Wire Wire Line
+	1600 5500 1600 2900
+Wire Wire Line
+	1600 2900 3800 2900
+Wire Wire Line
+	3800 2900 3800 2600
+Wire Wire Line
+	3800 2600 4300 2600
+Wire Wire Line
+	4300 2600 4300 2800
+Wire Wire Line
+	1600 5500 3850 5500
+Text Notes 4500 6350 0    50   ~ 0
+NC
+Text Notes 4400 6350 0    50   ~ 0
+NC
+Text Notes 8650 4750 0    50   ~ 0
+NC
+Text Notes 8550 4750 0    50   ~ 0
+NC
 $EndSCHEMATC
