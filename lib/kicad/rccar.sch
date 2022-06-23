@@ -50,8 +50,6 @@ Text Notes 4450 2300 0    50   ~ 0
 NC
 Wire Wire Line
 	3650 2050 4000 2050
-Text Notes 7300 1200 0    50   ~ 0
-NC
 Wire Wire Line
 	3700 2250 3700 2500
 Wire Wire Line
@@ -313,10 +311,6 @@ Text Notes 4750 6350 0    50   ~ 0
 NC
 Text Notes 4650 6350 0    50   ~ 0
 NC
-Text Notes 5750 6900 0    50   ~ 0
-NC
-Text Notes 5700 7000 0    50   ~ 0
-NC
 Text Notes 5250 6350 0    50   ~ 0
 NC
 Text Notes 5150 6350 0    50   ~ 0
@@ -417,58 +411,18 @@ Text Notes 10750 5750 1    50   ~ 0
 NC
 Text Notes 10750 5850 1    50   ~ 0
 NC
-$Comp
-L Device:Battery BT2
-U 1 1 62AAA8D5
-P 6050 7300
-F 0 "BT2" H 6000 7650 50  0000 L CNN
-F 1 "Battery" H 5950 7550 50  0000 L CNN
-F 2 "" V 6050 7360 50  0001 C CNN
-F 3 "~" V 6050 7360 50  0001 C CNN
-	1    6050 7300
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6400 6500 6400 7700
 Wire Wire Line
 	6300 6400 6300 7600
 Wire Wire Line
-	6050 7500 5850 7500
-Wire Wire Line
-	5850 7500 5850 7400
-Wire Wire Line
 	5750 7300 5850 7300
-Wire Wire Line
-	5850 7300 5850 7100
-Wire Wire Line
-	5850 7100 6050 7100
-Wire Wire Line
-	5750 7400 5800 7400
-Wire Wire Line
-	5750 7000 5750 7300
-Connection ~ 5750 7300
-Connection ~ 5800 7400
-Wire Wire Line
-	5800 7400 5850 7400
 Text Notes 3700 5350 0    50   ~ 0
 NC
 Text Notes 3700 5750 0    50   ~ 0
 NC
-$Comp
-L rccar-rescue:Nano U6
-U 1 1 62AE36EE
-P 2800 6600
-F 0 "U6" V 3200 7350 50  0000 L CNN
-F 1 "Nano" V 3300 7300 50  0000 L CNN
-F 2 "" H 2300 7350 50  0001 C CNN
-F 3 "" H 2300 7350 50  0001 C CNN
-	1    2800 6600
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	3850 5400 1850 5400
-Wire Wire Line
-	1650 5800 1650 5900
 Text Notes 4250 4100 0    50   ~ 0
 NC
 Text Notes 4150 4100 0    50   ~ 0
@@ -521,14 +475,6 @@ Text Notes 5050 2750 0    50   ~ 0
 NC
 Text Notes 5450 2750 0    50   ~ 0
 NC
-Text Notes 3700 6500 1    50   ~ 0
-NC
-Text Notes 3700 6600 1    50   ~ 0
-NC
-Text Notes 3700 6750 1    50   ~ 0
-NC
-Text Notes 3700 6850 1    50   ~ 0
-NC
 Text Notes 6100 3300 1    50   ~ 0
 NC
 Text Notes 6100 3400 1    50   ~ 0
@@ -537,72 +483,6 @@ Text Notes 6100 3500 1    50   ~ 0
 NC
 Text Notes 6100 3600 1    50   ~ 0
 NC
-Text Notes 1700 7400 0    50   ~ 0
-NC
-Text Notes 1600 7400 0    50   ~ 0
-NC
-Text Notes 1500 7400 0    50   ~ 0
-NC
-Text Notes 2000 7400 0    50   ~ 0
-NC
-Text Notes 1900 7400 0    50   ~ 0
-NC
-Text Notes 1800 7400 0    50   ~ 0
-NC
-Text Notes 2300 7400 0    50   ~ 0
-NC
-Text Notes 2200 7400 0    50   ~ 0
-NC
-Text Notes 2100 7400 0    50   ~ 0
-NC
-Text Notes 2600 7400 0    50   ~ 0
-NC
-Text Notes 2500 7400 0    50   ~ 0
-NC
-Text Notes 2400 7400 0    50   ~ 0
-NC
-Text Notes 2900 7400 0    50   ~ 0
-NC
-Text Notes 2800 7400 0    50   ~ 0
-NC
-Text Notes 2700 7400 0    50   ~ 0
-NC
-Text Notes 1100 6700 1    50   ~ 0
-NC
-Text Notes 1100 6800 1    50   ~ 0
-NC
-Text Notes 1100 6900 1    50   ~ 0
-NC
-Text Notes 1100 6400 1    50   ~ 0
-NC
-Text Notes 1100 6500 1    50   ~ 0
-NC
-Text Notes 1100 6600 1    50   ~ 0
-NC
-Text Notes 1900 5900 0    50   ~ 0
-NC
-Text Notes 1700 5900 0    50   ~ 0
-NC
-Text Notes 1500 5900 0    50   ~ 0
-NC
-Text Notes 2400 5900 0    50   ~ 0
-NC
-Text Notes 2300 5900 0    50   ~ 0
-NC
-Text Notes 2000 5900 0    50   ~ 0
-NC
-Text Notes 2700 5900 0    50   ~ 0
-NC
-Text Notes 2600 5900 0    50   ~ 0
-NC
-Text Notes 2500 5900 0    50   ~ 0
-NC
-Text Notes 2800 5900 0    50   ~ 0
-NC
-Text Notes 2900 5900 0    50   ~ 0
-NC
-Wire Wire Line
-	5800 6900 5800 7400
 Connection ~ 5400 2450
 Wire Wire Line
 	1850 5400 1850 4500
@@ -654,4 +534,20 @@ Text Notes 8650 4750 0    50   ~ 0
 NC
 Text Notes 8550 4750 0    50   ~ 0
 NC
+Wire Wire Line
+	1850 5400 1850 6650
+Wire Wire Line
+	1850 6650 5850 6650
+Wire Wire Line
+	5850 6650 5850 7300
+Connection ~ 1850 5400
+Wire Wire Line
+	5950 7400 5950 6550
+Wire Wire Line
+	5950 6550 3100 6550
+Wire Wire Line
+	3100 6550 3100 5800
+Wire Wire Line
+	5750 7400 5950 7400
+Connection ~ 3100 5800
 $EndSCHEMATC
