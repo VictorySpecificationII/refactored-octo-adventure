@@ -17,16 +17,22 @@ const char* input_parameter1 = "input_string";
 const char* input_parameter2 = "input_integer";
 const char* input_parameter3 = "input_float";
 
+const char* input_throttle = "input_integer";
+const char* input_brake = "input_integer";
+const char* input_steering = "input_integer";
+const char* input_aero_f = "input_integer";
+const char* input_aero_r = "input_integer";
+
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE HTML><html><head>
-  <title>HTML Form to Input Data</title>
+  <title>refactored-octo-adventure UI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     html {font-family: Times New Roman; display: inline-block; text-align: center;}
     h2 {font-size: 3.0rem; color: #FF0000;}
   </style>
   </head><body>
-  <h2>HTML Form to Input Data</h2> 
+  <h2>refactored-octo-adventure | Main Controller UI</h2> 
   <form action="/get">
     Enter a string: <input type="text" name="input_string">
     <input type="submit" value="Submit">
@@ -39,6 +45,30 @@ const char index_html[] PROGMEM = R"rawliteral(
     Enter a floating value: <input type="text" name="input_float">
     <input type="submit" value="Submit">
   </form>
+    <form action="/get">
+    Throttle | Integer | Input Range: 0 < x < 180 : <input type="text" name="input_integer">
+    <input type="submit" value="Submit">
+  </form><br>
+    </form>
+    <form action="/get">
+    Brake | Integer | Input Range: 0 < x < 90 : <input type="text" name="input_integer">
+    <input type="submit" value="Submit">
+  </form><br>
+    </form>
+    <form action="/get">
+    Steering | Integer | Input Range: -180 < x < 180 : <input type="text" name="input_integer">
+    <input type="submit" value="Submit">
+  </form><br>
+    </form>
+    <form action="/get">
+    Front Aero | Integer | Input Range: -45 < x < 45 : <input type="text" name="input_integer">
+    <input type="submit" value="Submit">
+  </form><br>
+    </form>
+    <form action="/get">
+    Rear Aero | Integer | Input Range: -45 < x < 45 : <input type="text" name="input_integer">
+    <input type="submit" value="Submit">
+  </form><br>
 </body></html>)rawliteral";
 
 void notFound(AsyncWebServerRequest *request) {
@@ -77,6 +107,31 @@ void setup() {
     else if (request->hasParam(input_parameter3)) {
       input_message = request->getParam(input_parameter3)->value();
       input_parameter = input_parameter3;
+    }
+    
+    else if (request->hasParam(input_throttle)) {
+      input_message = request->getParam(input_throttle)->value();
+      input_parameter = input_throttle;
+    }
+
+    else if (request->hasParam(input_brake)) {
+      input_message = request->getParam(input_brake)->value();
+      input_parameter = input_brake;
+    }
+
+    else if (request->hasParam(input_steering)) {
+      input_message = request->getParam(input_steering)->value();
+      input_parameter = input_steering;
+    }
+
+    else if (request->hasParam(input_aero_f)) {
+      input_message = request->getParam(input_aero_f)->value();
+      input_parameter = input_aero_f;
+    }
+
+    else if (request->hasParam(input_aero_r)) {
+      input_message = request->getParam(input_aero_r)->value();
+      input_parameter = input_aero_r;
     }
     else {
       input_message = "No message sent";
