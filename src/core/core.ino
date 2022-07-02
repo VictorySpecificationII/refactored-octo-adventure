@@ -1,5 +1,6 @@
 #include <Servo.h>
 #include "HCPCA9685.h"
+#include <Wire.h> //include Wire.h library
 
 
 /* I2C slave address for the device/module. For the HCMODU0097 the default I2C address
