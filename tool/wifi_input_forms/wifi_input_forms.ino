@@ -8,12 +8,34 @@
 #endif
 #include <ESPAsyncWebServer.h>
 
+
+#include <Servo.h>
+#include "HCPCA9685.h"
+#include <Wire.h> //include Wire.h library
+
+
+/* I2C slave address for the device/module. For the HCMODU0097 the default I2C address
+   is 0x40 */
+#define  I2CAdd 0x40
+ 
+ 
+/* Create an instance of the library */
+HCPCA9685 HCPCA9685(I2CAdd);
+
+
+
+//Specify external pins
+int drivePin = D0;
+Servo driveMotor;
+
+
+
 AsyncWebServer server(80);
 
 const char* ssid = "To Hani Living";
 const char* password = "welcometohani";
 
-const char* input_parameter1 = "input_string";
+const char* input_parameter1 = "input_string";    
 const char* input_parameter2 = "input_integer";
 const char* input_parameter3 = "input_float";
 
@@ -87,6 +109,27 @@ void setup() {
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
 
+
+
+  delay(2000);
+
+  //Attach drive and turn motors
+  driveMotor.attach(drivePin);
+  Serial.println("                            ");
+  Serial.println("==========REMEMBER==========");
+  Serial.println("Input Range is 0 <= x <= 180");
+
+  //Neutral the drive motor
+  driveMotor.write(90);
+
+  /* Initialise the library and set it to 'servo mode' */ 
+  HCPCA9685.Init(SERVO_MODE);
+ 
+  /* Wake the device up */
+  HCPCA9685.Sleep(false);
+
+
+
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/html", index_html);
   });
@@ -112,6 +155,8 @@ void setup() {
     else if (request->hasParam(input_throttle)) {
       input_message = request->getParam(input_throttle)->value();
       input_parameter = input_throttle;
+
+     
     }
 
     else if (request->hasParam(input_brake)) {
@@ -137,13 +182,21 @@ void setup() {
       input_message = "No message sent";
       input_parameter = "none";
     }
+    Serial.print("Value is: ");
     Serial.println(input_message);
     request->send(200, "text/html", "HTTP GET request sent to your ESP on input field ("+ input_parameter + ") with value: " + input_message + "<br><a href=\"/\">Return to Home Page</a>");
+    driveMotor.write(input_message.toInt());
+
+    
+
+    
   });
   server.onNotFound(notFound);
   server.begin();
 }
 
 void loop() {
-  
+
+
+
 }
