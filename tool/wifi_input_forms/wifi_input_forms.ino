@@ -125,10 +125,12 @@ void setup() {
   HCPCA9685.Sleep(false);
 
 
-  //create server
+  //create server page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/html", index_html);
   });
+
+/*
   //process input from server
   server.on("/get", HTTP_GET, [] (AsyncWebServerRequest *request) {
     String input_message;
@@ -170,6 +172,7 @@ void setup() {
 
     
   });
+  */
   server.onNotFound(notFound);
   server.begin();
 }
