@@ -14,13 +14,13 @@ AsyncWebServer server(80);
 const char* ssid = "To Hani Living";
 const char* password = "welcometohani";
 
-const char* PARAM_INPUT_1 = "input1";
-const char* PARAM_INPUT_2 = "input2";
-const char* PARAM_INPUT_3 = "input3";
-const char* PARAM_INPUT_4 = "input4";
-const char* PARAM_INPUT_5 = "input5";
+const char* PARAM_INPUT_1 = "input1";//thr
+const char* PARAM_INPUT_2 = "input2";//brk
+const char* PARAM_INPUT_3 = "input3";//str
+const char* PARAM_INPUT_4 = "input4";//aef
+const char* PARAM_INPUT_5 = "input5";//aer
 
-
+//globals to be used for high level control
 int thr;
 int brk;
 int str;
@@ -28,7 +28,7 @@ int aef;
 int aer;
 
 // HTML web page to handle 3 input fields (input1, input2, input3)
-//todo: add front and rear aero
+
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE HTML><html><head>
   <title>ESP Input Form</title>
