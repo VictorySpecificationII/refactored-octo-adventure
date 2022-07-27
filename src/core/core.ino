@@ -137,6 +137,7 @@ void setup() {
       brk=inputMessage.toInt();
       Serial.print("Brake Value is:");
       Serial.println(brk);
+      brakeControlFct(brk);
     }
     // GET input3 value on <ESP_IP>/get?input3=<inputMessage>
     else if (request->hasParam(PARAM_INPUT_3)) {
@@ -197,4 +198,11 @@ void throttleControlFct(int value){
     //Serial.println(val);
     driveMotor.write(val);
     }
+}
+
+
+void brakeControlFct(int value){
+  int val= value;
+  int currentSpeed = driveMotor.read();
+  driveMotor.write(currentSpeed + val);
 }
