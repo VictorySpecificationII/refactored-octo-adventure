@@ -111,11 +111,56 @@ void setup() {
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
 
-  // Send web page with input fields to client
+  handleClient();
+
+}
+
+
+
+
+
+
+void loop() {
+
+
+  unsigned int Pos;
+ 
+  /* Sweep the servo back and forth from its minimum to maximum position.
+     If your servo is hitting its end stops then you  should adjust the 
+     values so that the servo can sweep though its full range without hitting
+     the end stops. You can adjust the min & max positions by altering 
+     the trim values in the libraries HCPCA9685.h file*/
+  for(Pos = 10; Pos < 300; Pos++)
+  {
+    /* This function sets the servos position. It takes two parameters, 
+     * the first is the servo to control, and the second is the servo 
+     * position. */
+    HCPCA9685.Servo(3, Pos);
+    HCPCA9685.Servo(2, Pos);
+    HCPCA9685.Servo(1, Pos);
+    HCPCA9685.Servo(0, Pos);
+    delay(10);
+  }
+  
+  for(Pos = 300; Pos >= 10; Pos--)
+  {
+    HCPCA9685.Servo(0, Pos);
+    HCPCA9685.Servo(1, Pos);
+    HCPCA9685.Servo(2, Pos);
+    HCPCA9685.Servo(3, Pos);
+    delay(10);
+  }
+
+}
+
+void handleClient(){
+
+
+    // Send web page with input fields to client
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/html", index_html);
   });
-
+  
   // Send a GET request to <ESP_IP>/get?input1=<inputMessage>
   server.on("/get", HTTP_GET, [] (AsyncWebServerRequest *request) {
     String inputMessage;
@@ -146,6 +191,7 @@ void setup() {
       str=inputMessage.toInt();
       Serial.print("Steering Value is:");
       Serial.println(str);
+      //steerControlFct(str);
     }
     // GET input4 value on <ESP_IP>/get?input4=<inputMessage>
     else if (request->hasParam(PARAM_INPUT_4)) {
@@ -175,17 +221,8 @@ void setup() {
 
   server.onNotFound(notFound);
   server.begin();
-}
-
-
-
-
-
-
-void loop() {
   
 }
-
 
 void throttleControlFct(int value){
 
@@ -200,9 +237,19 @@ void throttleControlFct(int value){
     }
 }
 
-
 void brakeControlFct(int value){
   int val= value;
   int currentSpeed = driveMotor.read();
   driveMotor.write(currentSpeed + val);
+}
+
+void steerControlFct(int value){
+  int input = value;
+  //the PCA9865 is an output device only so you'll have to keep track of the steering position
+  int val = map(input, 0, 1023, 0, 180);
+  HCPCA9685.Servo(3, val);
+  HCPCA9685.Servo(2, val);
+  HCPCA9685.Servo(1, val);
+  HCPCA9685.Servo(0, val);
+  delay(10);
 }
