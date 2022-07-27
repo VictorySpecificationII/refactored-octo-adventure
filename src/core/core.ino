@@ -123,33 +123,7 @@ void setup() {
 void loop() {
 
 
-  unsigned int Pos;
- 
-  /* Sweep the servo back and forth from its minimum to maximum position.
-     If your servo is hitting its end stops then you  should adjust the 
-     values so that the servo can sweep though its full range without hitting
-     the end stops. You can adjust the min & max positions by altering 
-     the trim values in the libraries HCPCA9685.h file*/
-  for(Pos = 10; Pos < 300; Pos++)
-  {
-    /* This function sets the servos position. It takes two parameters, 
-     * the first is the servo to control, and the second is the servo 
-     * position. */
-    HCPCA9685.Servo(3, Pos);
-    HCPCA9685.Servo(2, Pos);
-    HCPCA9685.Servo(1, Pos);
-    HCPCA9685.Servo(0, Pos);
-    delay(10);
-  }
-  
-  for(Pos = 300; Pos >= 10; Pos--)
-  {
-    HCPCA9685.Servo(0, Pos);
-    HCPCA9685.Servo(1, Pos);
-    HCPCA9685.Servo(2, Pos);
-    HCPCA9685.Servo(3, Pos);
-    delay(10);
-  }
+steerControlFct(2);
 
 }
 
@@ -191,7 +165,6 @@ void handleClient(){
       str=inputMessage.toInt();
       Serial.print("Steering Value is:");
       Serial.println(str);
-      //steerControlFct(str);
     }
     // GET input4 value on <ESP_IP>/get?input4=<inputMessage>
     else if (request->hasParam(PARAM_INPUT_4)) {
@@ -244,12 +217,42 @@ void brakeControlFct(int value){
 }
 
 void steerControlFct(int value){
-  int input = value;
-  //the PCA9865 is an output device only so you'll have to keep track of the steering position
-  int val = map(input, 0, 1023, 0, 180);
-  HCPCA9685.Servo(3, val);
-  HCPCA9685.Servo(2, val);
-  HCPCA9685.Servo(1, val);
-  HCPCA9685.Servo(0, val);
-  delay(10);
+//  int input = value;
+//  //the PCA9865 is an output device only so you'll have to keep track of the steering position
+//  int val = map(input, 0, 1023, 0, 180);
+//  HCPCA9685.Servo(3, val);
+//  HCPCA9685.Servo(2, val);
+//  HCPCA9685.Servo(1, val);
+//  HCPCA9685.Servo(0, val);
+//  delay(10);
+
+
+
+
+      unsigned int Pos;
+//  /* Sweep the servo back and forth from its minimum to maximum position.
+//     If your servo is hitting its end stops then you  should adjust the 
+//     values so that the servo can sweep though its full range without hitting
+//     the end stops. You can adjust the min & max positions by altering 
+//     the trim values in the libraries HCPCA9685.h file*/
+  for(Pos = 10; Pos < 300; Pos++)
+  {
+//    /* This function sets the servos position. It takes two parameters, 
+//     * the first is the servo to control, and the second is the servo 
+//     * position. */
+    //HCPCA9685.Servo(3, Pos);//aef
+    HCPCA9685.Servo(2, Pos);//steering
+    //HCPCA9685.Servo(1, Pos);//aer
+    //HCPCA9685.Servo(0, Pos);//fan
+    delay(10);
+  }
+  
+  for(Pos = 300; Pos >= 10; Pos--)
+  {
+    //HCPCA9685.Servo(0, Pos);
+    //HCPCA9685.Servo(1, Pos);
+    HCPCA9685.Servo(2, Pos);
+    //HCPCA9685.Servo(3, Pos);
+    delay(10);
+  }
 }
