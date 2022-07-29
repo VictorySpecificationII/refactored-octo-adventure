@@ -58,23 +58,23 @@ const char index_html[] PROGMEM = R"rawliteral(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
   <form action="/get">
-    input1: <input type="text" name="input1">
+    input1(Throttle): <input type="text" name="input1">
     <input type="submit" value="Submit">
   </form><br>
   <form action="/get">
-    input2: <input type="text" name="input2">
+    input2(Brake): <input type="text" name="input2">
     <input type="submit" value="Submit">
   </form><br>
   <form action="/get">
-    input3: <input type="text" name="input3">
+    input3(Steering): <input type="text" name="input3">
     <input type="submit" value="Submit">
   </form><br>
   <form action="/get">
-    input4: <input type="text" name="input4">
+    input4(Front Aero): <input type="text" name="input4">
     <input type="submit" value="Submit">
   </form><br>
   <form action="/get">
-    input5: <input type="text" name="input5">
+    input5(Rear Aero): <input type="text" name="input5">
     <input type="submit" value="Submit">
   </form><br>
 </body></html>)rawliteral";
