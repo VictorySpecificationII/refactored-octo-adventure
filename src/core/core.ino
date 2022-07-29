@@ -123,7 +123,7 @@ void setup() {
 void loop() {
 
 
-steerControlFct(str);
+steerControlFct(2);
 
 }
 
@@ -165,7 +165,6 @@ void handleClient(){
       str=inputMessage.toInt();
       Serial.print("Steering Value is:");
       Serial.println(str);
-      //steerControlFct(str);
     }
     // GET input4 value on <ESP_IP>/get?input4=<inputMessage>
     else if (request->hasParam(PARAM_INPUT_4)) {
@@ -200,7 +199,7 @@ void handleClient(){
 
 void throttleControlFct(int value){
 
-    int val= value;
+    int val = value;
     if(val == 0){//Serial.available returns 0 so we can't use 0 for full throttle,use 1 instead
       //continue;
       val = 90; //stop the powertrain
@@ -212,45 +211,20 @@ void throttleControlFct(int value){
 }
 
 void brakeControlFct(int value){
-  int val= value;
+  int val = value;
   int currentSpeed = driveMotor.read();
   driveMotor.write(currentSpeed + val);
 }
 
 void steerControlFct(int value){
-  int input = value;
-//  //the PCA9865 is an output device only so you'll have to keep track of the steering position
-//  int val = map(input, 0, 1023, 0, 180);
-//  HCPCA9685.Servo(3, val);
-//  HCPCA9685.Servo(2, val);
-//  HCPCA9685.Servo(1, val);
-//  HCPCA9685.Servo(0, val);
-//  delay(10);
 
-      unsigned int Pos = input;
-//  /* Sweep the servo back and forth from its minimum to maximum position.
-//     If your servo is hitting its end stops then you  should adjust the 
-//     values so that the servo can sweep though its full range without hitting
-//     the end stops. You can adjust the min & max positions by altering 
-//     the trim values in the libraries HCPCA9685.h file*/
-  for(Pos; Pos < 300; Pos++)
-  {
-//    /* This function sets the servos position. It takes two parameters, 
-//     * the first is the servo to control, and the second is the servo 
-//     * position. */
-    //HCPCA9685.Servo(3, Pos);//aef
-    HCPCA9685.Servo(2, Pos);//steering
-    //HCPCA9685.Servo(1, Pos);//aer
-    //HCPCA9685.Servo(0, Pos);//fan
-    delay(10);
-  }
-  
-  for(Pos = 300; Pos >= 10; Pos--)
-  {
-    //HCPCA9685.Servo(0, Pos);
-    //HCPCA9685.Servo(1, Pos);
-    HCPCA9685.Servo(2, Pos);
-    //HCPCA9685.Servo(3, Pos);
-    delay(10);
-  }
+  val = value;            // reads the value of the potentiometer (value between 0 and 1023)
+  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
+  HCPCA9685.Servo(2, val);//myservo.write(val);                  // sets the servo position according to the scaled value
+  delay(15);  
+
+  //HCPCA9685.Servo(3, Pos);//aef
+  //HCPCA9685.Servo(2, Pos);//steering
+  //HCPCA9685.Servo(1, Pos);//aer
+  //HCPCA9685.Servo(0, Pos);//fan
 }
