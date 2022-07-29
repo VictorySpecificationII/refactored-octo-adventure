@@ -172,6 +172,7 @@ void handleClient(){
       aef=inputMessage.toInt();
       Serial.print("Front Aero Value is:");
       Serial.println(aef);
+      frontaeroControlFct(aef);
     }
     // GET input5 value on <ESP_IP>/get?input5=<inputMessage>
     else if (request->hasParam(PARAM_INPUT_5)) {
@@ -180,6 +181,7 @@ void handleClient(){
       aer=inputMessage.toInt();
       Serial.print("Rear Aero Value is:");
       Serial.println(aer);
+      rearaeroControlFct(aer);
     }
     else {
       inputMessage = "No message sent";
@@ -217,10 +219,35 @@ void brakeControlFct(int value){
 
 void steerControlFct(int value){
 
-  Serial.println("DEBUG: Steering Function Star");
   int val = value;            // reads the value of the potentiometer (value between 0 and 1023)
   val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
   HCPCA9685.Servo(2, val);//myservo.write(val);                  // sets the servo position according to the scaled value
+  delay(15);  
+
+  //HCPCA9685.Servo(3, Pos);//aef
+  //HCPCA9685.Servo(2, Pos);//steering
+  //HCPCA9685.Servo(1, Pos);//aer
+  //HCPCA9685.Servo(0, Pos);//fan
+}
+
+void frontaeroControlFct(int value){
+  
+  int val = value;            // reads the value of the potentiometer (value between 0 and 1023)
+  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
+  HCPCA9685.Servo(3, val);//myservo.write(val);                  // sets the servo position according to the scaled value
+  delay(15);  
+
+  //HCPCA9685.Servo(3, Pos);//aef
+  //HCPCA9685.Servo(2, Pos);//steering
+  //HCPCA9685.Servo(1, Pos);//aer
+  //HCPCA9685.Servo(0, Pos);//fan
+}
+
+void rearaeroControlFct(int value){
+  
+  int val = value;            // reads the value of the potentiometer (value between 0 and 1023)
+  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
+  HCPCA9685.Servo(1, val);//myservo.write(val);                  // sets the servo position according to the scaled value
   delay(15);  
 
   //HCPCA9685.Servo(3, Pos);//aef
