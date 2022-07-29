@@ -123,8 +123,6 @@ void setup() {
 void loop() {
 
 
-steerControlFct(2);
-
 }
 
 void handleClient(){
@@ -165,6 +163,7 @@ void handleClient(){
       str=inputMessage.toInt();
       Serial.print("Steering Value is:");
       Serial.println(str);
+      steerControlFct(str);
     }
     // GET input4 value on <ESP_IP>/get?input4=<inputMessage>
     else if (request->hasParam(PARAM_INPUT_4)) {
@@ -218,7 +217,8 @@ void brakeControlFct(int value){
 
 void steerControlFct(int value){
 
-  val = value;            // reads the value of the potentiometer (value between 0 and 1023)
+  Serial.println("DEBUG: Steering Function Star");
+  int val = value;            // reads the value of the potentiometer (value between 0 and 1023)
   val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
   HCPCA9685.Servo(2, val);//myservo.write(val);                  // sets the servo position according to the scaled value
   delay(15);  
